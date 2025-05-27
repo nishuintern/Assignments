@@ -78,6 +78,7 @@ const Users = () => {
               value={pageSize}
               onChange={handlePageSizeChange}
             >
+              <option value="2">2</option>
               <option value="5">5</option>
               <option value="10">10</option>
             </select>
