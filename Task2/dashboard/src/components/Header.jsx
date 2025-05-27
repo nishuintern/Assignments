@@ -48,6 +48,14 @@ const Header = () => {
                 Search
               </button>
             </form> */}
+            <img
+              src="https://static.vecteezy.com/system/resources/previews/024/766/962/non_2x/silver-gradient-social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-free-vector.jpg"
+              alt="logo"
+              width={30}
+              height={30}
+              className="rounded-circle ms-3"
+              style={{ cursor: "pointer" }}
+            />
           </div>
         </div>
       </nav>
