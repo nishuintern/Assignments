@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Task 1</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      thead {
+        background-color: lightgray;
+      }
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: center;
+      }
+      input {
+        width: 100%;
+        padding: 4px;
+        box-sizing: border-box;
+      }
+      button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <h2>Task 1</h2> -->
+    <div id="root"></div>
+
+    <!-- React + Babel -->
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+
+    <script type="text/babel">
+      const { useState } = React;
+
+      function App() {
+        const data = [
+          "Onboarding Call",
+          "Google Search Console Access",
+          "Google Analytics Access",
+          "Website Access",
+          "Technical Audit",
+          "Anchor Text and Semantic Analysis",
+          "Competitor Analysis",
+          "Anchor Text / URL Mapping",
+          "Google Data Studio Report + Local Reporting Suite",
+          "Site Level Optimization",
+          "On Page Optimization",
+          "Content Creation",
+          "Content Publishing",
+          "Premium Press Release",
+          "Authority Niche Placements",
+          "Review Management",
+          "Index Links",
+          "Video Recap",
+        ]; // You can change the matrix size here
+        const rows = data.length;
+        const cols = 6;
+
+        const [matrix, setMatrix] = useState(
+          Array.from({ length: rows }, () =>
+            Array.from({ length: cols }, () => "")
+          )
+        );
+
+        const handleChange = (row, col, value) => {
+          const updated = [...matrix];
+          updated[row][col] = value;
+          setMatrix(updated);
+        };
+
+        const handleSubmit = () => {
+          console.log("2D Matrix Data ready to POST:", matrix);
+          alert("Check console — data ready to post!");
+        };
+
+        return (
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Month 1</th>
+                  {Array.from({ length: cols }, (_, i) => (
+                    <th key={i}></th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {matrix.map((rowData, rowIndex) => (
+                  <tr key={rowIndex}>
+                    <td style={{ backgroundColor: "lightgray" }}>
+                      <strong>{data[rowIndex]}</strong>
+                    </td>
+                    {rowData.map((cell, colIndex) => (
+                      <td key={colIndex}>
+                        <input
+                          value={cell}
+                          onChange={(e) =>
+                            handleChange(rowIndex, colIndex, e.target.value)
+                          }
+                        />
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <button onClick={handleSubmit}>Submit Data</button>
+          </div>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+    </script>
+  </body>
+</html>
