@@ -24,7 +24,7 @@ const Users = () => {
       const fetchId = ++fetchIdRef.current;
       try {
         const response = await fetch(
-          `http://localhost:5000/users?page=${currentPage}&limit=${pageSize}&search=${encodeURIComponent(
+          `https://assignments-q7bj.onrender.com/users?page=${currentPage}&limit=${pageSize}&search=${encodeURIComponent(
             debouncedSearch
           )}`
         );
