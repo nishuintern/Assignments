@@ -7,7 +7,7 @@ const PORT = 5000;
 
 app.use(
   cors({
-    origin: "https://assignments-1-rq4l.onrender.com",
+    origin: "https://singular-muffin-3b0a07.netlify.app",
   })
 );
 
